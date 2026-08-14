@@ -342,7 +342,7 @@
             flex-shrink: 0;
         }
 
-        /* ===== MOBILE MENU - HIDDEN BY DEFAULT ON DESKTOP ===== */
+        /* ===== MOBILE MENU ===== */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -618,7 +618,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            align-items: center;
+            align-items: start;
         }
 
         .about-text h3 {
@@ -675,12 +675,40 @@
             border-color: rgba(201,168,76,0.3);
         }
 
+        .team-card-img-wrap {
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(180deg, var(--dark-blue), var(--mid-blue));
+        }
+
         .team-card-img {
             width: 100%;
-            height: 320px;
+            height: 100%;
             object-fit: cover;
-            object-position: top center;
+            object-position: center 15%;
             display: block;
+            transition: transform 0.5s;
+        }
+
+        .team-card:hover .team-card-img {
+            transform: scale(1.03);
+        }
+
+        .team-card-badge {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(10, 20, 32, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(201,168,76,0.3);
+            color: var(--gold);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .team-card-body {
@@ -1077,6 +1105,8 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            position: sticky;
+            top: 90px;
         }
 
         .contact-cta-box::before {
@@ -1221,11 +1251,11 @@
             position: absolute;
             bottom: 75px;
             right: 0;
-            width: 280px;
+            width: 300px;
             background: var(--dark-blue);
             border: 1px solid rgba(201,168,76,0.15);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 24px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.6);
             opacity: 0;
             visibility: hidden;
@@ -1243,61 +1273,59 @@
 
         .float-whatsapp-dropdown h4 {
             font-family: 'Libre Baskerville', serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--gold);
-            margin-bottom: 14px;
+            margin-bottom: 18px;
             text-align: center;
         }
 
         .whatsapp-option {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px;
-            border-radius: 12px;
+            gap: 14px;
+            padding: 14px;
+            border-radius: 14px;
             text-decoration: none;
             transition: all 0.3s;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.02);
         }
 
         .whatsapp-option:last-child { margin-bottom: 0; }
 
         .whatsapp-option:hover {
-            background: rgba(37, 211, 102, 0.1);
+            background: rgba(37, 211, 102, 0.08);
             border-color: rgba(37, 211, 102, 0.2);
+            transform: translateX(-4px);
         }
 
         .whatsapp-option .wa-avatar {
-            width: 44px; height: 44px;
+            width: 48px; height: 48px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid rgba(37, 211, 102, 0.3);
+            flex-shrink: 0;
         }
 
         .whatsapp-option .wa-info {
             flex: 1;
+            min-width: 0;
         }
 
         .whatsapp-option .wa-info .wa-name {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--white);
             display: block;
-        }
-
-        .whatsapp-option .wa-info .wa-role {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            display: block;
+            margin-bottom: 2px;
         }
 
         .whatsapp-option .wa-info .wa-number {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: #25D366;
             font-weight: 500;
             display: block;
-            margin-top: 2px;
         }
 
         .whatsapp-option .wa-icon {
@@ -1310,6 +1338,11 @@
             color: white;
             font-size: 1rem;
             flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-option:hover .wa-icon {
+            transform: scale(1.1);
         }
 
         /* ===== FOOTER ===== */
@@ -1401,8 +1434,9 @@
             .hero-logo-ring { width: 220px; height: 220px; }
             .hero-logo-ring img { width: 90px; height: 90px; }
             .about-grid { grid-template-columns: 1fr; gap: 40px; }
-            .team-cards { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .team-cards { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
             .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .contact-cta-box { position: static; }
             .desktop-menu { display: none; }
             .menu-toggle { display: block; }
             .nav-cta { display: none; }
@@ -1416,18 +1450,18 @@
             .stat-number { font-size: 1.6rem; }
             .stat-label { font-size: 0.7rem; }
             section { padding: 60px 20px; }
-            .team-card-img { height: 280px; }
             .contact-cta-box { padding: 28px 20px; }
             .map-container iframe { height: 280px; }
             .float-whatsapp { bottom: 16px; right: 16px; }
             .float-whatsapp-btn { width: 54px; height: 54px; font-size: 1.4rem; }
-            .float-whatsapp-dropdown { width: 260px; right: -10px; }
+            .float-whatsapp-dropdown { width: 280px; right: -10px; padding: 20px; }
         }
 
         @media (max-width: 400px) {
             .hero-logo-ring { width: 180px; height: 180px; }
             .hero-logo-ring img { width: 70px; height: 70px; }
             .btn-primary, .btn-secondary { padding: 12px 20px; font-size: 0.85rem; }
+            .float-whatsapp-dropdown { width: calc(100vw - 40px); right: -8px; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1483,7 +1517,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu (completely hidden on desktop via display:none) -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu" role="menu" aria-label="Menú móvil">
         <a href="#inicio" role="menuitem">Inicio</a>
         <a href="#nosotros" role="menuitem">Nosotros</a>
@@ -1579,7 +1613,10 @@
 
                     <div class="team-cards">
                         <article class="team-card">
-                            <img src="fotoilianarodriguez.jpeg" alt="Iliana Rodríguez, Abogada en R&R Asociados" class="team-card-img" loading="lazy" width="400" height="320">
+                            <div class="team-card-img-wrap">
+                                <img src="fotoilianarodriguez.jpeg" alt="Iliana Rodríguez, Abogada en R&R Asociados" class="team-card-img" loading="lazy">
+                                <span class="team-card-badge">ABOGADA</span>
+                            </div>
                             <div class="team-card-body">
                                 <h4>Iliana Rodríguez</h4>
                                 <p class="role">Abogada</p>
@@ -1591,7 +1628,10 @@
                         </article>
 
                         <article class="team-card">
-                            <img src="fotojeanrebolledo.jpeg" alt="Jean Carlos Rebolledo, Abogado en R&R Asociados" class="team-card-img" loading="lazy" width="400" height="320">
+                            <div class="team-card-img-wrap">
+                                <img src="fotojeanrebolledo.jpeg" alt="Jean Carlos Rebolledo, Abogado en R&R Asociados" class="team-card-img" loading="lazy">
+                                <span class="team-card-badge">ABOGADO</span>
+                            </div>
                             <div class="team-card-body">
                                 <h4>Jean Carlos Rebolledo</h4>
                                 <p class="role">Abogado</p>
@@ -2026,24 +2066,22 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button with Dropdown -->
+    <!-- Floating WhatsApp -->
     <div class="float-whatsapp">
         <div class="float-whatsapp-dropdown" id="waDropdown">
             <h4>¿Con quién desea contactar?</h4>
             <a href="https://wa.me/584120376911" class="whatsapp-option" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Jean Carlos Rebolledo">
-                <img src="fotojeanrebolledo.jpeg" alt="" class="wa-avatar" aria-hidden="true" width="44" height="44">
+                <img src="fotojeanrebolledo.jpeg" alt="" class="wa-avatar" aria-hidden="true" width="48" height="48">
                 <div class="wa-info">
-                    <span class="wa-name">JR</span>
-                    <span class="wa-role">Abg. Jean Carlos Rebolledo</span>
+                    <span class="wa-name">Abg. Jean Carlos Rebolledo</span>
                     <span class="wa-number">0412-037.69.11</span>
                 </div>
                 <div class="wa-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
             </a>
             <a href="https://wa.me/584243023115" class="whatsapp-option" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Iliana Rodríguez">
-                <img src="fotoilianarodriguez.jpeg" alt="" class="wa-avatar" aria-hidden="true" width="44" height="44">
+                <img src="fotoilianarodriguez.jpeg" alt="" class="wa-avatar" aria-hidden="true" width="48" height="48">
                 <div class="wa-info">
-                    <span class="wa-name">IR</span>
-                    <span class="wa-role">Abg. Iliana Rodríguez</span>
+                    <span class="wa-name">Abg. Iliana Rodríguez</span>
                     <span class="wa-number">0424-302.31.15</span>
                 </div>
                 <div class="wa-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
@@ -2055,7 +2093,6 @@
     </div>
 
     <script>
-        // Intersection Observer for scroll animations
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -2075,7 +2112,6 @@
             observer.observe(el);
         });
 
-        // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -2085,7 +2121,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobileMenu');
                     const menuToggle = document.getElementById('menuToggle');
                     if (mobileMenu && mobileMenu.classList.contains('open')) {
@@ -2097,7 +2132,6 @@
             });
         });
 
-        // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -2112,7 +2146,6 @@
             });
         }
 
-        // Floating WhatsApp dropdown
         const waBtn = document.getElementById('waBtn');
         const waDropdown = document.getElementById('waDropdown');
 
@@ -2132,7 +2165,6 @@
             });
         }
 
-        // Close mobile menu on resize to desktop
         window.addEventListener('resize', () => {
             if (window.innerWidth > 968) {
                 if (mobileMenu) mobileMenu.classList.remove('open');
