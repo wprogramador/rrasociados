@@ -8,7 +8,7 @@
     <!-- SEO Core -->
     <title>R&R Asociados | Bufete de Abogados en Maracay, Venezuela</title>
     <meta name="description" content="R&R Asociados - Bufete de Abogados en Maracay, Aragua, Venezuela. Más de 15 años de experiencia en Derecho Civil, Mercantil, Laboral, Familia, Inmobiliario y Litigios. Atención personalizada y asesoría legal integral.">
-    <meta name="keywords" content="abogados Maracay, bufete de abogados Venezuela, derecho civil, derecho mercantil, derecho laboral, derecho de familia, derecho inmobiliario, litigios, arbitraje, asesoría legal Aragua, R&R Asociados, abogados Aragua, trámites legales Venezuela">
+    <meta name="keywords" content="abogados Maracay, bufete de abogados Venezuela, derecho civil, derecho mercantil, derecho laboral, derecho de familia, derecho inmobiliario, litigios, arbitraje, asesoría legal Aragua, R&R Asociados, abogados Aragua, trámites legales Venezuela, Jean Carlos Rebolledo, Iliana Rodríguez">
     <meta name="author" content="R&R Asociados">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -53,6 +53,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.google.com">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -73,14 +74,15 @@
       "email": "maracayaragua6@gmail.com",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Avenida Bolívar, Centro de Maracay",
         "addressLocality": "Maracay",
         "addressRegion": "Aragua",
         "addressCountry": "VE"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "10.2442",
-        "longitude": "-67.5936"
+        "latitude": "10.255973",
+        "longitude": "-67.597903"
       },
       "areaServed": {
         "@type": "City",
@@ -100,12 +102,14 @@
           "@type": "Person",
           "name": "Iliana Rodríguez",
           "jobTitle": "Abogada",
+          "telephone": "+58-424-3023115",
           "worksFor": {"@type": "LegalService", "name": "R&R Asociados"}
         },
         {
           "@type": "Person",
-          "name": "Jean Rebolledo",
+          "name": "Jean Carlos Rebolledo",
           "jobTitle": "Abogado",
+          "telephone": "+58-412-0376911",
           "worksFor": {"@type": "LegalService", "name": "R&R Asociados"}
         }
       ],
@@ -168,6 +172,14 @@
             "@type": "Answer",
             "text": "R&R Asociados cuenta con más de 15 años de experiencia ofreciendo soluciones legales adaptadas a cada caso."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Quiénes son los abogados de R&R Asociados?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "R&R Asociados está conformado por el Abogado Jean Carlos Rebolledo (0412-037.69.11) y la Abogada Iliana Rodríguez (0424-302.31.15)."
+          }
         }
       ]
     }
@@ -216,6 +228,7 @@
         }
         .skip-link:focus { top: 0; }
 
+        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -241,6 +254,7 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .nav-logo img {
@@ -261,6 +275,7 @@
             display: flex;
             gap: 32px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -270,6 +285,7 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            white-space: nowrap;
         }
 
         .nav-links a:hover,
@@ -304,6 +320,8 @@
             font-weight: 600;
             text-decoration: none;
             transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .nav-cta:hover,
@@ -321,8 +339,53 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 8px;
+            flex-shrink: 0;
         }
 
+        /* Mobile menu overlay */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 70px; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 20, 32, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            padding: 30px 24px;
+            gap: 8px;
+            border-top: 1px solid rgba(201,168,76,0.15);
+        }
+
+        .mobile-overlay.active {
+            display: flex;
+        }
+
+        .mobile-overlay a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 14px 16px;
+            border-radius: 12px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .mobile-overlay a:hover,
+        .mobile-overlay a:focus {
+            background: rgba(201,168,76,0.1);
+            color: var(--gold);
+            outline: none;
+        }
+
+        .mobile-overlay .mobile-cta {
+            margin-top: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -506,6 +569,7 @@
             to { transform: rotate(-360deg); }
         }
 
+        /* ===== SECTIONS ===== */
         section {
             padding: 80px 24px;
             position: relative;
@@ -543,6 +607,7 @@
             border-radius: 2px;
         }
 
+        /* ===== ABOUT / TEAM ===== */
         .about-section {
             background: linear-gradient(180deg, var(--dark-blue) 0%, var(--mid-blue) 100%);
         }
@@ -610,8 +675,9 @@
 
         .team-card-img {
             width: 100%;
-            height: 280px;
+            height: 320px;
             object-fit: cover;
+            object-position: top center;
             display: block;
         }
 
@@ -640,6 +706,28 @@
             line-height: 1.5;
         }
 
+        .team-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            background: rgba(37, 211, 102, 0.1);
+            color: #25D366;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(37, 211, 102, 0.2);
+        }
+
+        .team-whatsapp:hover {
+            background: #25D366;
+            color: white;
+        }
+
+        /* ===== SERVICES ===== */
         .services-section {
             background: var(--dark);
         }
@@ -653,11 +741,13 @@
         .service-card {
             background: linear-gradient(180deg, var(--dark-blue) 0%, var(--mid-blue) 100%);
             border-radius: 20px;
-            padding: 32px 28px;
+            padding: 32px 28px 24px;
             border: 1px solid rgba(201,168,76,0.08);
             transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card::before {
@@ -691,28 +781,42 @@
             pointer-events: none;
         }
 
+        .service-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card-logo {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
         .service-icon {
-            width: 50px; height: 50px;
+            width: 44px; height: 44px;
             background: rgba(201,168,76,0.1);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 18px;
-            position: relative;
-            z-index: 1;
+            flex-shrink: 0;
         }
 
         .service-icon i {
             color: var(--gold);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         .service-card h3 {
             font-family: 'Libre Baskerville', serif;
             font-size: 1.25rem;
             color: var(--gold);
-            margin-bottom: 8px;
             position: relative;
             z-index: 1;
         }
@@ -730,6 +834,7 @@
             list-style: none;
             position: relative;
             z-index: 1;
+            margin-bottom: auto;
         }
 
         .service-list li {
@@ -752,6 +857,35 @@
             flex-shrink: 0;
         }
 
+        .card-footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(201,168,76,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-footer-logo img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            opacity: 0.7;
+        }
+
+        .card-footer-logo span {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+        .card-footer-logo span strong {
+            color: var(--gold);
+        }
+
+        /* ===== DEFINITIONS ===== */
         .definitions-section {
             background: linear-gradient(180deg, var(--mid-blue) 0%, var(--dark-blue) 100%);
         }
@@ -766,10 +900,12 @@
             background: rgba(10, 20, 32, 0.6);
             border: 1px solid rgba(201,168,76,0.1);
             border-radius: 20px;
-            padding: 32px 28px;
+            padding: 32px 28px 24px;
             transition: all 0.4s;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .def-card::before {
@@ -793,6 +929,8 @@
             color: var(--gold);
             margin-bottom: 14px;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .def-card p {
@@ -801,10 +939,15 @@
             line-height: 1.6;
             text-align: center;
             margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
         }
 
         .def-bullets {
             list-style: none;
+            position: relative;
+            z-index: 1;
+            margin-bottom: auto;
         }
 
         .def-bullets li {
@@ -824,6 +967,7 @@
             flex-shrink: 0;
         }
 
+        /* ===== CONTACT ===== */
         .contact-section {
             background: linear-gradient(180deg, var(--dark) 0%, var(--dark-blue) 100%);
             position: relative;
@@ -842,7 +986,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            align-items: center;
+            align-items: start;
             position: relative;
             z-index: 1;
         }
@@ -862,7 +1006,7 @@
 
         .contact-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 14px;
             padding: 14px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -893,12 +1037,20 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        .contact-icon i.fa-map-marker-alt { color: #ea4335; }
 
         .contact-detail h4 {
             font-size: 0.9rem;
             color: var(--white);
             margin-bottom: 2px;
             font-weight: 600;
+        }
+
+        .contact-detail .contact-name {
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-bottom: 2px;
+            font-weight: 500;
         }
 
         .contact-detail a,
@@ -990,6 +1142,174 @@
             outline: none;
         }
 
+        /* Google Maps */
+        .map-container {
+            margin-top: 30px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(201,168,76,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            display: block;
+        }
+
+        .map-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(201,168,76,0.05);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .map-label i {
+            color: #ea4335;
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9998;
+        }
+
+        .float-whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .float-whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+        }
+
+        .float-whatsapp-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 2px solid #25D366;
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        .float-whatsapp-dropdown {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            width: 280px;
+            background: var(--dark-blue);
+            border: 1px solid rgba(201,168,76,0.15);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+
+        .float-whatsapp-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .float-whatsapp-dropdown h4 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 0.95rem;
+            color: var(--gold);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .whatsapp-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .whatsapp-option:last-child { margin-bottom: 0; }
+
+        .whatsapp-option:hover {
+            background: rgba(37, 211, 102, 0.1);
+            border-color: rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-option .wa-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-option .wa-info {
+            flex: 1;
+        }
+
+        .whatsapp-option .wa-info .wa-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--white);
+            display: block;
+        }
+
+        .whatsapp-option .wa-info .wa-role {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .whatsapp-option .wa-info .wa-number {
+            font-size: 0.8rem;
+            color: #25D366;
+            font-weight: 500;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .whatsapp-option .wa-icon {
+            width: 36px; height: 36px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* ===== FOOTER ===== */
         footer {
             background: var(--dark);
             border-top: 1px solid rgba(201,168,76,0.1);
@@ -1056,6 +1376,7 @@
             font-size: 0.8rem;
         }
 
+        /* ===== ANIMATIONS ===== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -1067,27 +1388,42 @@
             transform: translateY(0);
         }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 968px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 40px; }
             .hero-text .subtitle { margin: 0 auto 30px; }
             .hero-stats { justify-content: center; }
             .hero-buttons { justify-content: center; }
             .hero-visual { order: -1; }
-            .hero-logo-ring { width: 240px; height: 240px; }
-            .hero-logo-ring img { width: 100px; height: 100px; }
-            .about-grid { grid-template-columns: 1fr; }
+            .hero-logo-ring { width: 220px; height: 220px; }
+            .hero-logo-ring img { width: 90px; height: 90px; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
             .team-cards { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-            .contact-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
+            .nav-cta { display: none; }
+            .services-grid,
+            .def-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 640px) {
-            .services-grid,
-            .def-grid { grid-template-columns: 1fr; }
-            .hero-stats { gap: 24px; }
-            .stat-number { font-size: 1.8rem; }
+            .hero-stats { gap: 20px; }
+            .stat-number { font-size: 1.6rem; }
+            .stat-label { font-size: 0.7rem; }
             section { padding: 60px 20px; }
+            .team-card-img { height: 280px; }
+            .contact-cta-box { padding: 28px 20px; }
+            .map-container iframe { height: 280px; }
+            .float-whatsapp { bottom: 16px; right: 16px; }
+            .float-whatsapp-btn { width: 54px; height: 54px; font-size: 1.4rem; }
+            .float-whatsapp-dropdown { width: 260px; right: -10px; }
+        }
+
+        @media (max-width: 400px) {
+            .hero-logo-ring { width: 180px; height: 180px; }
+            .hero-logo-ring img { width: 70px; height: 70px; }
+            .btn-primary, .btn-secondary { padding: 12px 20px; font-size: 0.85rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1097,10 +1433,7 @@
                 transition-duration: 0.01ms !important;
                 scroll-behavior: auto !important;
             }
-            .fade-in {
-                opacity: 1;
-                transform: none;
-            }
+            .fade-in { opacity: 1; transform: none; }
         }
 
         :focus-visible {
@@ -1109,7 +1442,7 @@
         }
 
         @media print {
-            nav, .hero-buttons, .contact-cta-box, .whatsapp-btn, .instagram-btn { display: none; }
+            nav, .float-whatsapp, .hero-buttons, .contact-cta-box, .whatsapp-btn, .instagram-btn { display: none !important; }
             body { background: white; color: black; }
             .hero { min-height: auto; padding: 40px 20px; }
             section { padding: 30px 20px; }
@@ -1120,6 +1453,7 @@
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
+    <!-- Navigation -->
     <nav role="navigation" aria-label="Navegación principal">
         <div class="nav-container">
             <a href="#" class="nav-logo" aria-label="R&R Asociados - Inicio">
@@ -1139,13 +1473,26 @@
                 <i class="fab fa-whatsapp" aria-hidden="true"></i> Escríbanos
             </a>
 
-            <button class="mobile-menu-btn" aria-label="Abrir menú móvil" aria-expanded="false" aria-controls="mobile-menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú móvil" aria-expanded="false" aria-controls="mobileMenu">
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu Overlay (separate from nav to avoid duplication) -->
+    <div class="mobile-overlay" id="mobileMenu" role="menu" aria-label="Menú móvil">
+        <a href="#inicio" role="menuitem">Inicio</a>
+        <a href="#nosotros" role="menuitem">Nosotros</a>
+        <a href="#servicios" role="menuitem">Servicios</a>
+        <a href="#definiciones" role="menuitem">Definiciones</a>
+        <a href="#contacto" role="menuitem">Contacto</a>
+        <a href="https://wa.me/584120376911" class="mobile-cta" target="_blank" rel="noopener noreferrer" role="menuitem">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Escríbanos por WhatsApp
+        </a>
+    </div>
+
     <main id="main-content">
+        <!-- Hero -->
         <section class="hero" id="inicio" aria-label="Presentación">
             <div class="hero-pattern" aria-hidden="true"></div>
             <div class="hero-content">
@@ -1192,6 +1539,7 @@
             </div>
         </section>
 
+        <!-- About / Team -->
         <section class="about-section" id="nosotros" aria-labelledby="about-heading">
             <div class="section-container">
                 <div class="section-header">
@@ -1227,20 +1575,26 @@
 
                     <div class="team-cards">
                         <article class="team-card">
-                            <img src="fotoilianarodriguez.jpeg" alt="Iliana Rodríguez, Abogada en R&R Asociados" class="team-card-img" loading="lazy" width="400" height="280">
+                            <img src="fotoilianarodriguez.jpeg" alt="Iliana Rodríguez, Abogada en R&R Asociados" class="team-card-img" loading="lazy" width="400" height="320">
                             <div class="team-card-body">
                                 <h4>Iliana Rodríguez</h4>
                                 <p class="role">Abogada</p>
                                 <p>Especialista en derecho civil, familia y trámites legales. Comprometida con la excelencia y la atención personalizada.</p>
+                                <a href="https://wa.me/584243023115" class="team-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Iliana Rodríguez por WhatsApp">
+                                    <i class="fab fa-whatsapp" aria-hidden="true"></i> 0424-302.31.15
+                                </a>
                             </div>
                         </article>
 
                         <article class="team-card">
-                            <img src="fotojeanrebolledo.jpeg" alt="Jean Rebolledo, Abogado en R&R Asociados" class="team-card-img" loading="lazy" width="400" height="280">
+                            <img src="fotojeanrebolledo.jpeg" alt="Jean Carlos Rebolledo, Abogado en R&R Asociados" class="team-card-img" loading="lazy" width="400" height="320">
                             <div class="team-card-body">
-                                <h4>Jean Rebolledo</h4>
+                                <h4>Jean Carlos Rebolledo</h4>
                                 <p class="role">Abogado</p>
                                 <p>Especialista en derecho mercantil, laboral y litigios. Enfocado en estrategias legales para maximizar resultados.</p>
+                                <a href="https://wa.me/584120376911" class="team-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Jean Carlos Rebolledo por WhatsApp">
+                                    <i class="fab fa-whatsapp" aria-hidden="true"></i> 0412-037.69.11
+                                </a>
                             </div>
                         </article>
                     </div>
@@ -1248,6 +1602,7 @@
             </div>
         </section>
 
+        <!-- Services -->
         <section class="services-section" id="servicios" aria-labelledby="services-heading">
             <div class="section-container">
                 <div class="section-header">
@@ -1258,8 +1613,9 @@
 
                 <div class="services-grid">
                     <article class="service-card fade-in">
-                        <div class="service-icon" aria-hidden="true">
-                            <i class="fas fa-balance-scale"></i>
+                        <div class="service-card-header">
+                            <img src="logo-rr-web.png" alt="" class="service-card-logo" aria-hidden="true" width="36" height="36">
+                            <div class="service-icon" aria-hidden="true"><i class="fas fa-balance-scale"></i></div>
                         </div>
                         <h3>Derecho Civil</h3>
                         <p class="service-desc">Protección de sus derechos e intereses patrimoniales</p>
@@ -1272,11 +1628,16 @@
                             <li><i class="fas fa-check" aria-hidden="true"></i> Antecedentes penales</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> Exclusiones del sistema penal</li>
                         </ul>
+                        <div class="card-footer-logo">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="service-card fade-in">
-                        <div class="service-icon" aria-hidden="true">
-                            <i class="fas fa-briefcase"></i>
+                        <div class="service-card-header">
+                            <img src="logo-rr-web.png" alt="" class="service-card-logo" aria-hidden="true" width="36" height="36">
+                            <div class="service-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></div>
                         </div>
                         <h3>Derecho Mercantil</h3>
                         <p class="service-desc">Asesoría adaptada a la dinámica comercial de cada patrocinante</p>
@@ -1288,11 +1649,16 @@
                             <li><i class="fas fa-check" aria-hidden="true"></i> Contratos comerciales</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> Resolución de conflictos mercantiles</li>
                         </ul>
+                        <div class="card-footer-logo">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="service-card fade-in">
-                        <div class="service-icon" aria-hidden="true">
-                            <i class="fas fa-user-tie"></i>
+                        <div class="service-card-header">
+                            <img src="logo-rr-web.png" alt="" class="service-card-logo" aria-hidden="true" width="36" height="36">
+                            <div class="service-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
                         </div>
                         <h3>Derecho Laboral</h3>
                         <p class="service-desc">Protección integral en materia laboral y seguridad en el trabajo</p>
@@ -1302,11 +1668,16 @@
                             <li><i class="fas fa-check" aria-hidden="true"></i> Despidos y beneficios</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> Asesoría preventiva laboral</li>
                         </ul>
+                        <div class="card-footer-logo">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="service-card fade-in">
-                        <div class="service-icon" aria-hidden="true">
-                            <i class="fas fa-home"></i>
+                        <div class="service-card-header">
+                            <img src="logo-rr-web.png" alt="" class="service-card-logo" aria-hidden="true" width="36" height="36">
+                            <div class="service-icon" aria-hidden="true"><i class="fas fa-home"></i></div>
                         </div>
                         <h3>Derecho Inmobiliario</h3>
                         <p class="service-desc">Transacciones y regularización de bienes inmuebles</p>
@@ -1317,11 +1688,16 @@
                             <li><i class="fas fa-check" aria-hidden="true"></i> Administración de inmuebles residenciales</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> Registros de inmuebles</li>
                         </ul>
+                        <div class="card-footer-logo">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="service-card fade-in">
-                        <div class="service-icon" aria-hidden="true">
-                            <i class="fas fa-heart"></i>
+                        <div class="service-card-header">
+                            <img src="logo-rr-web.png" alt="" class="service-card-logo" aria-hidden="true" width="36" height="36">
+                            <div class="service-icon" aria-hidden="true"><i class="fas fa-heart"></i></div>
                         </div>
                         <h3>Derecho de Familia</h3>
                         <p class="service-desc">Acompañamiento legal sensible y profesional</p>
@@ -1335,11 +1711,16 @@
                             <li><i class="fas fa-check" aria-hidden="true"></i> Permisos de viajes para menores dentro y fuera del país</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> Registros de inmuebles familiares</li>
                         </ul>
+                        <div class="card-footer-logo">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="service-card fade-in">
-                        <div class="service-icon" aria-hidden="true">
-                            <i class="fas fa-gavel"></i>
+                        <div class="service-card-header">
+                            <img src="logo-rr-web.png" alt="" class="service-card-logo" aria-hidden="true" width="36" height="36">
+                            <div class="service-icon" aria-hidden="true"><i class="fas fa-gavel"></i></div>
                         </div>
                         <h3>Litigios y Arbitraje</h3>
                         <p class="service-desc">Representación en controversias judiciales y extrajudiciales</p>
@@ -1349,11 +1730,16 @@
                             <li><i class="fas fa-check" aria-hidden="true"></i> Mediación y negociación</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> Estrategias para lograr el mayor éxito</li>
                         </ul>
+                        <div class="card-footer-logo">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="service-card fade-in">
-                        <div class="service-icon" aria-hidden="true">
-                            <i class="fas fa-folder-open"></i>
+                        <div class="service-card-header">
+                            <img src="logo-rr-web.png" alt="" class="service-card-logo" aria-hidden="true" width="36" height="36">
+                            <div class="service-icon" aria-hidden="true"><i class="fas fa-folder-open"></i></div>
                         </div>
                         <h3>Trámites y Diligencias</h3>
                         <p class="service-desc">Gestión profesional ante entes públicos y privados</p>
@@ -1365,11 +1751,16 @@
                             <li><i class="fas fa-check" aria-hidden="true"></i> Instituciones públicas y privadas</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> Entes locales, estadales y nacionales</li>
                         </ul>
+                        <div class="card-footer-logo">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
+        <!-- Definitions -->
         <section class="definitions-section" id="definiciones" aria-labelledby="defs-heading">
             <div class="section-container">
                 <div class="section-header">
@@ -1380,6 +1771,10 @@
 
                 <div class="def-grid">
                     <article class="def-card fade-in">
+                        <div class="card-footer-logo" style="margin-bottom: 14px; border: none; padding: 0;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="28" height="28">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                         <h3>¿Qué es el Derecho Civil?</h3>
                         <p>
                             Es la rama del Derecho que regula las relaciones entre personas, ya sean físicas o jurídicas, 
@@ -1391,9 +1786,17 @@
                             <li><i class="fas fa-star" aria-hidden="true"></i> Regula contratos y obligaciones entre particulares</li>
                             <li><i class="fas fa-star" aria-hidden="true"></i> Garantiza la transmisión de bienes por herencia</li>
                         </ul>
+                        <div class="card-footer-logo" style="margin-top: 14px;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="def-card fade-in">
+                        <div class="card-footer-logo" style="margin-bottom: 14px; border: none; padding: 0;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="28" height="28">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                         <h3>¿Qué es el Derecho Mercantil?</h3>
                         <p>
                             Es el conjunto de normas que regulan el ejercicio del comercio y las actividades empresariales. 
@@ -1405,9 +1808,17 @@
                             <li><i class="fas fa-star" aria-hidden="true"></i> Estructuración legal de inversiones y negocios</li>
                             <li><i class="fas fa-star" aria-hidden="true"></i> Representación en conflictos mercantiles</li>
                         </ul>
+                        <div class="card-footer-logo" style="margin-top: 14px;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="def-card fade-in">
+                        <div class="card-footer-logo" style="margin-bottom: 14px; border: none; padding: 0;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="28" height="28">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                         <h3>¿Qué es el Derecho Laboral?</h3>
                         <p>
                             Regula las relaciones entre empleadores y trabajadores, garantizando derechos fundamentales, 
@@ -1419,9 +1830,17 @@
                             <li><i class="fas fa-star" aria-hidden="true"></i> Cumplimiento de normas de salud y seguridad</li>
                             <li><i class="fas fa-star" aria-hidden="true"></i> Defensa en despidos y reclamos de beneficios</li>
                         </ul>
+                        <div class="card-footer-logo" style="margin-top: 14px;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="def-card fade-in">
+                        <div class="card-footer-logo" style="margin-bottom: 14px; border: none; padding: 0;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="28" height="28">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                         <h3>¿Qué es el Derecho de Familia?</h3>
                         <p>
                             Es la rama del Derecho que regula las relaciones familiares, protegiendo los derechos de todos 
@@ -1433,9 +1852,17 @@
                             <li><i class="fas fa-star" aria-hidden="true"></i> Resolución de conflictos familiares con sensibilidad</li>
                             <li><i class="fas fa-star" aria-hidden="true"></i> Trámites de sucesiones y régimen de convivencia</li>
                         </ul>
+                        <div class="card-footer-logo" style="margin-top: 14px;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="def-card fade-in">
+                        <div class="card-footer-logo" style="margin-bottom: 14px; border: none; padding: 0;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="28" height="28">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                         <h3>¿Qué son Litigios y Arbitraje?</h3>
                         <p>
                             Son mecanismos de resolución de conflictos. Los litigios se desarrollan ante tribunales, 
@@ -1447,9 +1874,17 @@
                             <li><i class="fas fa-star" aria-hidden="true"></i> Mediación y negociación para acuerdos rápidos</li>
                             <li><i class="fas fa-star" aria-hidden="true"></i> Estrategias legales para maximizar resultados</li>
                         </ul>
+                        <div class="card-footer-logo" style="margin-top: 14px;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
 
                     <article class="def-card fade-in">
+                        <div class="card-footer-logo" style="margin-bottom: 14px; border: none; padding: 0;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="28" height="28">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                         <h3>¿Qué es la Asesoría Corporativa?</h3>
                         <p>
                             Es el acompañamiento legal integral que recibe una empresa desde su constitución hasta su 
@@ -1461,11 +1896,16 @@
                             <li><i class="fas fa-star" aria-hidden="true"></i> Cumplimiento en áreas mercantil, laboral y fiscal</li>
                             <li><i class="fas fa-star" aria-hidden="true"></i> Representación en litigios y resolución de conflictos</li>
                         </ul>
+                        <div class="card-footer-logo" style="margin-top: 14px;">
+                            <img src="logo-rr-web.png" alt="" aria-hidden="true" width="24" height="24">
+                            <span><strong>R&R</strong> Asociados</span>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
+        <!-- Contact -->
         <section class="contact-section" id="contacto" aria-labelledby="contact-heading">
             <div class="section-container">
                 <div class="section-header">
@@ -1485,6 +1925,7 @@
                             </div>
                             <div class="contact-detail">
                                 <h4>WhatsApp</h4>
+                                <span class="contact-name">Abg. Jean Carlos Rebolledo</span>
                                 <a href="https://wa.me/584120376911" target="_blank" rel="noopener noreferrer">0412-037.69.11</a>
                             </div>
                         </div>
@@ -1495,6 +1936,7 @@
                             </div>
                             <div class="contact-detail">
                                 <h4>WhatsApp</h4>
+                                <span class="contact-name">Abg. Iliana Rodríguez</span>
                                 <a href="https://wa.me/584243023115" target="_blank" rel="noopener noreferrer">0424-302.31.15</a>
                             </div>
                         </div>
@@ -1528,12 +1970,21 @@
                                 <span>Maracay, Aragua, Venezuela</span>
                             </div>
                         </div>
+
+                        <!-- Google Maps -->
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3926.069569569759!2d-67.59790300000002!3d10.255973!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e803bcfc7d11f61%3A0xdf9834ee4abc8ec8!2sR%26R%20Asociados%20Bufete%20de%20Abogados!5e0!3m2!1ses-419!2sve!4v1786726849273!5m2!1ses-419!2sve" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Ubicación de R&R Asociados en Maracay"></iframe>
+                            <div class="map-label">
+                                <i class="fas fa-map-pin" aria-hidden="true"></i>
+                                <span>R&R Asociados · Avenida Bolívar, Centro de Maracay</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="contact-cta-box">
                         <h4>¿Necesita asesoría legal?</h4>
                         <p>Contáctenos hoy mismo y reciba una atención personalizada adaptada a su caso específico.</p>
-                        <a href="https://wa.me/584120376911" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+                        <a href="https://wa.me/584120376911" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Jean Carlos Rebolledo por WhatsApp">
                             <i class="fab fa-whatsapp" aria-hidden="true"></i> Escríbanos por WhatsApp
                         </a>
                         <br>
@@ -1546,6 +1997,7 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer role="contentinfo">
         <div class="footer-content">
             <a href="#" class="footer-logo" aria-label="R&R Asociados">
@@ -1570,7 +2022,36 @@
         </div>
     </footer>
 
+    <!-- Floating WhatsApp Button with Dropdown -->
+    <div class="float-whatsapp">
+        <div class="float-whatsapp-dropdown" id="waDropdown">
+            <h4>¿Con quién desea contactar?</h4>
+            <a href="https://wa.me/584120376911" class="whatsapp-option" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Jean Carlos Rebolledo">
+                <img src="fotojeanrebolledo.jpeg" alt="" class="wa-avatar" aria-hidden="true" width="44" height="44">
+                <div class="wa-info">
+                    <span class="wa-name">JR</span>
+                    <span class="wa-role">Abg. Jean Carlos Rebolledo</span>
+                    <span class="wa-number">0412-037.69.11</span>
+                </div>
+                <div class="wa-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+            </a>
+            <a href="https://wa.me/584243023115" class="whatsapp-option" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Iliana Rodríguez">
+                <img src="fotoilianarodriguez.jpeg" alt="" class="wa-avatar" aria-hidden="true" width="44" height="44">
+                <div class="wa-info">
+                    <span class="wa-name">IR</span>
+                    <span class="wa-role">Abg. Iliana Rodríguez</span>
+                    <span class="wa-number">0424-302.31.15</span>
+                </div>
+                <div class="wa-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+            </a>
+        </div>
+        <button class="float-whatsapp-btn" id="waBtn" aria-label="Abrir opciones de contacto por WhatsApp" aria-expanded="false" aria-controls="waDropdown">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </button>
+    </div>
+
     <script>
+        // Intersection Observer for scroll animations
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -1590,6 +2071,7 @@
             observer.observe(el);
         });
 
+        // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1599,29 +2081,57 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.remove('active');
+                    document.getElementById('mobileMenuBtn').setAttribute('aria-expanded', 'false');
                 }
             });
         });
 
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-        if (mobileBtn && navLinks) {
+        if (mobileBtn && mobileMenu) {
             mobileBtn.addEventListener('click', () => {
                 const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
                 mobileBtn.setAttribute('aria-expanded', !isExpanded);
-                navLinks.style.display = isExpanded ? 'none' : 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '70px';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'rgba(10, 20, 32, 0.98)';
-                navLinks.style.padding = '20px';
-                navLinks.style.gap = '16px';
-                navLinks.style.borderBottom = '1px solid rgba(201,168,76,0.15)';
+                mobileMenu.classList.toggle('active');
+                mobileBtn.innerHTML = isExpanded 
+                    ? '<i class="fas fa-bars" aria-hidden="true"></i>' 
+                    : '<i class="fas fa-times" aria-hidden="true"></i>';
             });
         }
+
+        // Floating WhatsApp dropdown
+        const waBtn = document.getElementById('waBtn');
+        const waDropdown = document.getElementById('waDropdown');
+
+        if (waBtn && waDropdown) {
+            waBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isExpanded = waBtn.getAttribute('aria-expanded') === 'true';
+                waBtn.setAttribute('aria-expanded', !isExpanded);
+                waDropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!waDropdown.contains(e.target) && !waBtn.contains(e.target)) {
+                    waDropdown.classList.remove('active');
+                    waBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Close mobile menu on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 968) {
+                mobileMenu.classList.remove('active');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+                mobileBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+            }
+        });
     </script>
 </body>
 </html>
