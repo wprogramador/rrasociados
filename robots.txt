@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /admin/
+
+Sitemap: https://rr.bio.co.ve/sitemap.xml
