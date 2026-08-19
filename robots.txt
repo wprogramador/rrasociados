@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
+Disallow: /private/
 Disallow: /admin/
+
+Crawl-delay: 1
 
 Sitemap: https://rr.bio.co.ve/sitemap.xml
